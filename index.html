@@ -100,9 +100,12 @@
       alt="Tapedeck mit drehender Kassette"
       ar
       ar-modes="scene-viewer webxr quick-look"
-      ar-scale="fixed"
+      ar-scale="auto"
       camera-controls
-      touch-action="pan-y"
+      disable-zoom="false"
+      min-camera-orbit="auto auto 5%"
+      max-camera-orbit="auto auto 300%"
+      touch-action="none"
       autoplay
       animation-name="Float"
       interaction-prompt="none"
