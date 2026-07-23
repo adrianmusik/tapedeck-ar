@@ -106,7 +106,7 @@
       </button>
     </div>
 
-    <div class="hintdrag">ziehen zum drehen · pinch zum zoomen</div>
+    <div class="hintdrag">aufs deck tippen = play · ziehen = drehen · pinch = zoom</div>
 
     <div>
       <div class="dock">
@@ -115,7 +115,7 @@
             <svg id="ic" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
           </button>
           <div class="info">
-            <div class="t">Untitled Beat — 90 BPM</div>
+            <div class="t">We'll Be Allright</div>
             <div class="d" id="time">0:00 / --:--</div>
           </div>
           <div class="bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
@@ -162,6 +162,21 @@
   fsBtn.onclick=()=>{ if(!document.fullscreenElement){ (stage.requestFullscreen||stage.webkitRequestFullscreen).call(stage); } else { document.exitFullscreen(); } };
 
   mv.addEventListener('camera-change',()=>document.body.classList.add('touched'),{once:true});
+
+  // Ladehinweis ausblenden, sobald das Modell fertig ist
+  const loadingEl=document.querySelector('.loading');
+  mv.addEventListener('load',()=>{ loadingEl.style.opacity='0'; });
+
+  // Aufs Tapedeck tippen = Beat an/aus (Tap wird von Drag unterschieden)
+  let px,py,pt,pmoved;
+  mv.addEventListener('pointerdown',e=>{px=e.clientX;py=e.clientY;pt=Date.now();pmoved=false;});
+  mv.addEventListener('pointermove',e=>{ if(Math.abs(e.clientX-px)+Math.abs(e.clientY-py)>10)pmoved=true; });
+  mv.addEventListener('pointerup',e=>{
+    if(pmoved||Date.now()-pt>300)return;
+    const r=mv.getBoundingClientRect();
+    const hit=mv.positionAndNormalFromPoint(e.clientX-r.left,e.clientY-r.top);
+    if(hit){ beat.paused?beat.play().catch(()=>{}):beat.pause(); }
+  });
 </script>
 </body>
 </html>
