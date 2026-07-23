@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>VALE — Tapedeck AR</title>
+<title>Adrian — Tapedeck AR</title>
 <meta name="description" content="Boom-Bap-Beat als AR-Objekt. Die Kassette dreht sich." />
 
-<meta property="og:title" content="VALE — Tapedeck AR" />
+<meta property="og:title" content="Adrian — Tapedeck AR" />
 <meta property="og:description" content="Tap. In deinen Raum stellen. Play." />
 <meta property="og:type" content="website" />
 
@@ -44,8 +44,9 @@
   model-viewer{width:100%;height:100%;--poster-color:transparent;
     background:radial-gradient(90% 90% at 50% 40%, #22222f 0%, #101019 70%);}
   .corner{position:absolute;top:12px;left:14px;z-index:3;font-family:"Space Mono",monospace;
-    font-size:10px;letter-spacing:.2em;color:var(--muted);text-transform:uppercase;}
-  .corner.r{left:auto;right:14px;color:var(--cool)}
+    font-size:10px;letter-spacing:.16em;color:var(--muted);text-transform:uppercase;
+    max-width:48%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .corner.r{left:auto;right:14px;color:var(--cool);text-align:right}
   .loading{position:absolute;inset:0;display:grid;place-items:center;z-index:2;
     font-family:"Space Mono",monospace;font-size:11px;letter-spacing:.2em;color:var(--muted);
     text-transform:uppercase;pointer-events:none;transition:opacity .4s ease}
@@ -87,15 +88,15 @@
   <div>
     <div class="eyebrow"><span>AR // Scene Viewer</span><b>● Live</b></div>
     <h1>Boom Bap<br><span>in deinen Raum.</span></h1>
-    <p class="sub">Tap unten, richte die Kamera auf den Boden – das Tapedeck erscheint bei dir, die Kassette dreht sich. Play läuft parallel.</p>
+    <p class="sub">Tap unten, richte die Kamera auf den Boden – das Tapedeck erscheint bei dir, die Spulen drehen sich. Play läuft parallel.</p>
   </div>
 
   <div class="stage">
-    <span class="corner">MODEL / tapedeck-spin.glb</span>
-    <span class="corner r">CASSETTE&nbsp;SPINS</span>
+    <span class="corner">MODEL · TAPEDECK</span>
+    <span class="corner r">REELS&nbsp;SPIN</span>
     <model-viewer
       id="mv"
-      src="tapedeck-spin.glb"
+      src="tapedeck-reels.glb"
       alt="Tapedeck mit drehender Kassette"
       ar
       ar-modes="scene-viewer webxr quick-look"
@@ -103,7 +104,7 @@
       camera-controls
       touch-action="pan-y"
       autoplay
-      animation-name="CassetteSpin"
+      animation-name="ReelsSpin"
       interaction-prompt="none"
       shadow-intensity="1"
       exposure="1.05">
@@ -130,7 +131,7 @@
   </button>
   <p class="hint" id="arHint">Benötigt ARCore (Android) · WebXR</p>
 
-  <div class="foot"><span>VALE · <b>Landstreicher</b></span><span>SCHWARZWALD</span></div>
+  <div class="foot"><span><b>Adrian</b></span><span>SCHWARZWALD</span></div>
 
   <audio id="beat" src="beat.mp3" preload="metadata" loop></audio>
 </div>
