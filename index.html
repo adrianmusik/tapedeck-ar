@@ -88,15 +88,15 @@
   <div>
     <div class="eyebrow"><span>AR // Scene Viewer</span><b>● Live</b></div>
     <h1>Boom Bap<br><span>in deinen Raum.</span></h1>
-    <p class="sub">Tap unten, richte die Kamera auf den Boden – das Tapedeck erscheint bei dir, die Spulen drehen sich. Play läuft parallel.</p>
+    <p class="sub">Tap unten, richte die Kamera auf den Boden – das Tapedeck erscheint bei dir, es schwebt sanft vor dir. Play läuft parallel.</p>
   </div>
 
   <div class="stage">
     <span class="corner">MODEL · TAPEDECK</span>
-    <span class="corner r">REELS&nbsp;SPIN</span>
+    <span class="corner r">SCHWEBT</span>
     <model-viewer
       id="mv"
-      src="tapedeck-reels.glb"
+      src="tapedeck-float.glb"
       alt="Tapedeck mit drehender Kassette"
       ar
       ar-modes="scene-viewer webxr quick-look"
@@ -104,7 +104,7 @@
       camera-controls
       touch-action="pan-y"
       autoplay
-      animation-name="ReelsSpin"
+      animation-name="Float"
       interaction-prompt="none"
       shadow-intensity="1"
       exposure="1.05">
